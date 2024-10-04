@@ -4,6 +4,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "build:css": "tailwindcss -i ./app/assets/css/tailwind.css -o ./public/assets/styles.css --minify",
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "node scripts/postinstall.js",
     "generate": "node scripts/generate.js"

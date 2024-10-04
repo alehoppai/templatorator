@@ -14,6 +14,7 @@ enableBodyParser(app)
 enableSession(app)
 enableViews(app)
 
+app.use(express.static('public'))
 app.use(router)
 
 app.listen(
