@@ -1,6 +1,6 @@
 {
-  "name": "test-name",
-  "version": "1.0.0",
+  "name": "templatorator",
+  "version": "0.0.1",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -8,10 +8,18 @@
     "postinstall": "node scripts/postinstall.js",
     "generate": "node scripts/generate.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "generation",
+    "mvc",
+    "fullstack",
+    "framework"
+  ],
+  "author": {
+    "email": "aleh_belski@outlook.com",
+    "name": "Aleh Belski"
+  },
   "license": "ISC",
-  "description": "",
+  "description": "If won't drop it I'm planning to make kinda RoR setup for nodejs. To quick prototyping my project",
   "devDependencies": {
     "@types/express": "^5.0.0",
     "@types/node": "^22.7.4",
