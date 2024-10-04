@@ -2,7 +2,7 @@ import * as sqlite3 from "sqlite3"
 import * as session from "express-session"
 import sqliteStoreFactory from "express-session-sqlite"
 
-import vars from "./vars" 
+import vars from "./vars.js" 
 
 export function enableSession(app) {
   if (!vars.enableSession) {

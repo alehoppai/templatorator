@@ -1,5 +1,5 @@
 import bodyParser from "body-parser"
-import vars from "./vars"
+import vars from "./vars.js"
 
 export function enableBodyParser(app) {
   if (!vars.enableBodyParser) {
