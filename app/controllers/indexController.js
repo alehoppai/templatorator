@@ -7,6 +7,10 @@ export class IndexController extends BaseController {
     ])
   }
 
+  /**
+   * @param {import('express').Request} req 
+   * @param {import('express').Response} res 
+   */
   index(req, res) {
     res.render("pages/index", { title: "Landing page" })
   }

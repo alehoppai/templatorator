@@ -1,8 +1,15 @@
 import { Router } from 'express'
 
+/**
+ * Base controller class.
+ * local router initialized here
+ */
 export class BaseController {
   router = Router()
 
+  /**
+   * @param {['GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE', 'string', 'string'][]} routes 
+   */
   constructor(routes) {
     for (const [method, path, handler] of routes) {
       console.log(method, path, handler)
