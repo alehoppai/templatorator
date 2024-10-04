@@ -1,7 +1,12 @@
 import { Router } from "express";
+import { IndexController } from "./controllers/indexController.js";
 
 const r = Router()
 
-r.get('/', (req, res) => res.send("Hello from new app"))
+const indexController = new IndexController()
+r.use(indexController.router)
+
+// <% routes_gen_region %>
+// <% end %>
 
 export default r

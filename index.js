@@ -5,12 +5,14 @@ import express from "express"
 
 import { enableBodyParser } from "./config/bodyParser.js"
 import { enableSession } from "./config/session.js"
+import { enableViews } from "./config/viewSetup.js"
 import router from "./app/router.js"
 
 const app = express()
 
 enableBodyParser(app)
 enableSession(app)
+enableViews(app)
 
 app.use(router)
 
