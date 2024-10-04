@@ -1,4 +1,4 @@
 export default {
-  enableBodyParser: false,
-  enableSession: false,
+  enableBodyParser: true,
+  enableSession: true,
 }
