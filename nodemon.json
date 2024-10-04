@@ -1,0 +1,13 @@
+{
+  "watch": [
+    "app",
+    "index.js"
+  ],
+  "ext": "js,json",
+  "exec": "node index.js",
+  "ignore": [
+    "node_modules",
+    "logs"
+  ],
+  "delay": "2500"
+}
