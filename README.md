@@ -14,3 +14,11 @@ Templatorator is a Node.js framework designed for rapid prototyping of full-stac
 - Template rendering using ETA for dynamic content generation
 - Responsive design capabilities with Tailwind CSS
 - User authentication support via Passport.js
+
+
+# TODO:
+
+- View generators
+- Models generators
+- Passport auth
+- Protected routes 
