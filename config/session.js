@@ -13,7 +13,7 @@ export function enableSession(app) {
     return
   }
 
-  const dbPath = path.join(path.resolve(), `../${process.env.SESSIONBASE_URL}`);
+  const dbPath = path.join(path.resolve(), `${process.env.SESSIONBASE_URL}`);
 
   const dirPath = path.dirname(dbPath);
   if (!fs.existsSync(dirPath)) {
@@ -26,7 +26,7 @@ export function enableSession(app) {
   app.use(session({
     store: new SqliteStore({
       driver: sqlite3.Database,
-      path: path.join(path.resolve(), `../${process.env.SESSIONBASE_URL}`),
+      path: dbPath,
     }),
     secret: process.env.APP_SESSION_SECRET || 'my_deepest_secret',
     resave: false,
@@ -34,5 +34,5 @@ export function enableSession(app) {
     cookie: { secure: true },
   }))
   console.info("CONFIG -- session [enabled]")
-  console.info("CONFIG -- session file ", path.join(path.resolve(), `../${process.env.SESSIONBASE_URL}`))
+  console.info("CONFIG -- session file", dbPath)
 }
