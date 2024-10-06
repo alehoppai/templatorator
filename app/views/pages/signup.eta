@@ -1,0 +1,3 @@
+<% layout("layouts/auth") %>
+
+<h1 class="text-xl underline">Sign up page</h1>
