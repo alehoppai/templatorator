@@ -29,11 +29,12 @@ const pageTemplate = (name) => `
  * Generates page. Its controller with mapped index route.
  * Mapping to base route with given name.
  * @param {string} name 
+ * @param {boolean} protectedRoute
  */
-export function generatePage(name) {
+export function generatePage(name, protectedRoute = false) {
   const trueName = name.trim().toLowerCase()
 
-  generateController(trueName, [], true)
+  generateController(trueName, [], true, protectedRoute)
   const layoutsDir = path.join(path.resolve(), 'app/views/layouts')
   const pagesDir = path.join(path.resolve(), 'app/views/pages')
 

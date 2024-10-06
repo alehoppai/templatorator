@@ -5,15 +5,17 @@ import express from "express"
 
 import { enableBodyParser } from "./config/bodyParser.js"
 import { enableSession } from "./config/session.js"
-import { enableViews } from "./config/viewSetup.js"
+import { enablePassport} from "./config/passport.js"
 import { enableRoutes } from "./config/routes.js"
+import { enableViews } from "./config/viewSetup.js"
 
 const app = express()
 
 enableBodyParser(app)
 enableSession(app)
-enableViews(app)
+enablePassport(app)
 enableRoutes(app)
+enableViews(app)
 
 app.use(express.static('public'))
 

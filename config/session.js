@@ -31,7 +31,7 @@ export function enableSession(app) {
     secret: process.env.APP_SESSION_SECRET || 'my_deepest_secret',
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: true },
+    cookie: { secure: process.env.NODE_ENV === 'production' },
   }))
   console.info("CONFIG -- session [enabled]")
   console.info("CONFIG -- session file", dbPath)

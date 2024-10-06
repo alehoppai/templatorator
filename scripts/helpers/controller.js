@@ -51,8 +51,14 @@ export class ${capitalize(name)}Controller extends BaseController {
  * @param {string} name 
  * @param {string[]} methods 
  * @param {boolean} forPage
+ * @param {boolean} protectedRoute
  */
-export function generateController(name, methods, forPage) {
+export function generateController(
+  name,
+  methods = [],
+  forPage = false,
+  protectedRoute = false,
+) {
     const routerPath = path.join(path.resolve(), 'config/routes.js')
     const template = forPage
       ? controllerForPageTemplate(name)
@@ -77,7 +83,7 @@ export function generateController(name, methods, forPage) {
     linedContent.splice(
       lastRegisteredRowNum,
       0,
-      `  app.use('/${name.toLocaleLowerCase()}', new ${capitalize(name)}Controller().router)`
+      `  app.use('/${name.toLocaleLowerCase()}',${protectedRoute ? ' ensureAuthenticated, ': ''} new ${capitalize(name)}Controller().router)`
     )
 
     const updatedContent = linedContent.join('\n')

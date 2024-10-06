@@ -18,7 +18,5 @@ Templatorator is a Node.js framework designed for rapid prototyping of full-stac
 
 # TODO:
 
-- View generators
 - Models generators
-- Passport auth
-- Protected routes 
+- Unified error messages with i18n
