@@ -1,5 +1,8 @@
 import passport from 'passport'
 import LocalStrategy from 'passport-local'
+import bcrypt from "bcrypt"
+
+import prisma from "../../utils/prisma.js"
 
 // TODO: prepare proper auth strategy when models will be ready
 const localStrategy = new LocalStrategy(
@@ -7,18 +10,22 @@ const localStrategy = new LocalStrategy(
     usernameField: 'login',
     passwordField: 'password',
   },
-  (login, password, done) => {
-    // FIXME: should be model from prisma
-    User.findOne({ login }, (err, user) => {
-      if (err) {
-        return done(err)
+  async (login, password, done) => {
+    try {
+      const user = await prisma.user.findUnique({ where: { login } })
+      if (!user) {
+        return done(null, false, { message: 'Incorrect credentials.' })
       }
-      if (!user || !user.validatePassword(password)) {
+      
+      const passwordIsValid = bcrypt.compare(user.password, password)
+      if (!passwordIsValid) {
         return done(null, false, { message: 'Incorrect credentials.' })
       }
 
-      return done(null, user)
-    })
+      done(null, user)
+    } catch(err) {
+      done(err)
+    }
   },
 )
 

@@ -1,6 +1,9 @@
 import passport from "passport"
 import { BaseController } from "./baseController.js"
+import bcrypt from "bcrypt"
+
 import vars from "../../config/vars.js"
+import prisma from "../../utils/prisma.js"
 
 export class AuthController extends BaseController {
   constructor() {
@@ -49,7 +52,25 @@ export class AuthController extends BaseController {
    * @param {import('express').Request} req 
    * @param {import('express').Response} res 
    */
-  signup(req, res) {}
+  async signup(req, res) {
+    const { login, password } = req.body
+
+    try {
+      const salt = await bcrypt.genSalt(10)
+      const hash = await bcrypt.hash(password, salt)
+
+      await prisma.user.create({
+        data: {
+          login,
+          password: hash,
+        },
+      })
+
+      res.status(301).redirect(vars.signinPage)
+    } catch (err) {
+      res.status(500).send('Signup error')
+    }
+  }
 
   /**
    * @param {import('express').Request} req 

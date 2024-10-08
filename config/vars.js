@@ -3,4 +3,5 @@ export default {
   enableSession: true,
 
   protectedHomepage: '/replace-me',
+  signinPage: '/auth/signin',
 }

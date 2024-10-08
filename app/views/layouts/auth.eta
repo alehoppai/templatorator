@@ -6,7 +6,9 @@
   <link rel="stylesheet" href="/assets/styles.css">
   <title><%= it.title %></title>
 </head>
-<body>
-  <%~ it.body %>
+<body class="bg-gradient-to-tr from-slate-700 to-gray-900 h-screen flex flex-col items-center justify-center">
+  <div class="shadow-xl rounded-xl flex flex-col gap-4 p-6 bg-slate-100">
+    <%~ it.body %>
+  </div>
 </body>
 </html>
