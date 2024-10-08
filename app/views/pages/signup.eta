@@ -1,3 +1,0 @@
-<% layout("layouts/auth") %>
-
-<h1 class="text-xl">Sign up page</h1>

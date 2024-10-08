@@ -5,24 +5,21 @@ import { capitalize } from "./utils.js";
 import { generateController } from "./controller.js";
 
 const layoutTemplate = () => `
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/assets/styles.css">
-  <title><%= it.title %></title>
-</head>
-<body>
-  <%~ it.body %>
-</body>
-</html>
+html(lang="end")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet" href="/assets/styles.css")
+    title= title
+  body
+    block content
 `
 
 const pageTemplate = (name) => `
-<% layout("layouts/${name}") %>
+extends ../layouts/index.pug
 
-<h1 class="text-xl underline">${capitalize(name)} page</h1>
+block content
+  h1.text-xl ${capitalize(name)} page
 `
 
 /**

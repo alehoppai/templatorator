@@ -1,4 +1,0 @@
-<% layout("layouts/index") %>
-
-<h1 class="text-xl underline">Index page</h1>
-
