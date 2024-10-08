@@ -1,0 +1,31 @@
+include textInput.pug
+include button.pug
+
+mixin Form(title, action, method, submitText="submit", inputs = [])
+  h1.text-xl.font-semibold= title
+  form(action=action, method=method, class="flex flex-col gap-4 items-start")
+    each val in inputs
+      case val
+        when "login_email"
+          +TextInput(
+            "login",
+            "login",
+            "email",
+            "Email",
+            "Email",
+          )
+        when "password"
+          +TextInput(
+            "password",
+            "password",
+            "password",
+            "Password",
+            "Password",
+          )
+        default
+          span Empty Form
+    if block
+      block
+
+    div.flex.items-center.justify-center.w-full
+      +Button("submit_form", "submit")= submitText

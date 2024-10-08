@@ -1,4 +1,17 @@
 extends ../layouts/auth.pug
+include ../mixins/form.pug
+include ../mixins/link.pug
 
 block content
-  h1.text-xl.underline Sign in page
+  +Form(
+    "Sign in",
+    "/auth/signin",
+    "POST",
+    "Sign In",
+    ["login_email", "password"]
+  )
+
+  +Link("/auth/signup")
+    span Don't have an account 
+    span.text-underline.font-semibold Sign up
+

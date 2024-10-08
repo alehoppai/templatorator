@@ -1,0 +1,12 @@
+mixin TextInput(id, name, type="text", placeholder="", label="", value="", required=false)
+  div.flex.flex-col.gap-2.w-full
+    if label
+      label(for=id, class="text-gray-600 font-semibold")= label
+    input(
+      id=id
+      class="px-4 py-2 rounded-xl w-full"
+      name=name
+      type=type
+      value=value
+      required=required
+    )
